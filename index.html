@@ -24,40 +24,50 @@
         <section class="container-fluid mt-5">
             <div class="row gx-5">
                 <div class="col-lg-6">
-                    <img src="./images/money_picture.jpg" alt="" height="600px" width="100%">
+                    <div class="">
+                        <img class="rounded" src="./images/money_picture.jpg" alt="" height="900px" width="100%">
+                    </div>
                 </div>
-                <div class="col-lg-6 d-flex flex-column align-items-center">
-                    <div>
-                        <h1 class="fw-bolder  mb-3">Income</h1>
+                <div class="col-lg-6  d-flex flex-column align-items-center justify-content-center right-side">
+                    <div class="my-3">
+                        <h1 class="fw-bolder  mb-3 text-center">Income</h1>
                         <label for="income" class="fs-3 fw-bolder">Income: </label>
+                        <h6 id="error-message1" class="error-message"><span class="text-danger">*</span>You can not give nothing except a positive number.</h6>
                         <input id="income-field" type="text" id="income">
                     </div>
-                    <div>
-                        <h1 class="fw-bolder  my-3">Expenses</h1>
+                    <div class="my-3">
+                        <h1 class="fw-bolder text-center">Expenses</h1>
                         <br>
                         <label for="food" class="fs-3 fw-bolder">Food: </label>
-                        <br>
+                        <h6 id="error-message2" class="error-message"><span class="text-danger">*</span>You can not give nothing except a positive number.</h6>
+                        
                         <input type="text" id="food">
                         <br>
-                        <label for="rent" class="fs-3 fw-bolder">Rent: </label>
-                        <br>
+                        <label for="rent" class="fs-3 fw-bolder my-4">Rent: </label>
+                        <h6 id="error-message3" class="error-message"><span class="text-danger">*</span>You can not give nothing except a positive number.</h6>
+                        
                         <input type="text" id="rent">
                         <br>
                         <label for="clothes" class="fs-3 fw-bolder">Clothes: </label>
-                        <br>
+                        <h6 id="error-message4" class="error-message"><span class="text-danger">*</span> You can not give nothing except a positive number.</h6>
+                        
                         <input type="text" id="clothes">
                         <br>
                         <br>
-                        <button id="btn-calculate" class="custom-btn">Calculate</button>
+                        <button id="btn-calculate" class="custom-btn ms-5">Calculate</button>
                     </div>
-                    <div class="my-4">
+                    <div class="my-2">
                         <h1 class="fw-bolder">Total Expenses:<Span id="total-expenses">0</Span></h1>
+                        <h6 id="error-message6" class="error-message"><span class="text-danger">*</span>Expense can not be greater than income.</h6>
                         <h1 class="fw-bolder">Balance:<Span id="balance" >0</Span></h1>
                     </div>
                     <div class="my-4">
                         <label for="save" class="fs-3 fw-bolder">Save:</label>
+                        <h6 id="error-message7" class="error-message"><span class="text-danger">*</span>You can not give nothing except a positive number.</h6>
                         <input type="text"  id="save"> <span class="fs-3 fw-bolder">%</span>
                         <button id="btn-save" class="custom-btn">Save</button>
+                        <h6 id="error-message9" class="error-messagegit"><span class="text-danger">*</span>You can not give nothing except a positive number.</h6>
+                        <h6 id="error-message8" class="error-message"><span class="text-danger">*</span>Savings can not be greater than balnace.</h6>
                     </div>
                     <div class="my-4">
                         <h1 class="fw-bolder">Saving Ammount:<Span id="saving-ammount">0</Span></h1>

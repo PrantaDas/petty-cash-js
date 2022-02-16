@@ -1,52 +1,67 @@
-console.log('js added');
+
 
 // calculating total expenses and balance
-function firstCalculation(giveId){
-    const income= document.getElementById(giveId);
-    const incomeText=income.value;
-    const incomeInNumber=parseFloat(incomeText);
-    // income.value='';
-    return incomeInNumber;
+function firstCalculation(giveId,errorId){
+    const expense= document.getElementById(giveId);
+    const expenseText=expense.value;
+    const expenseInNumber=parseFloat(expenseText);
+    if(isNaN(expenseInNumber)||expenseInNumber<0){
+        document.getElementById(errorId).style.display='block';
+    }
+    
+    else{
+        // income.value='';
+        document.getElementById(errorId).style.display='none';
+        return expenseInNumber;
+    }
     
 }
+// sum of three expenses
 function costCalculation(first,second,third){
     const sum=first+second+third;
     return sum;
 }
 
+// total expense and balance update
 
 document.getElementById('btn-calculate').addEventListener('click',function(){
-    // const income= document.getElementById('income-field');
-    // const incomeText=income.value;
-    // const incomeInNumber=parseFloat(incomeText);
-    const myIncome=firstCalculation('income-field');
-    const myFoodCost=firstCalculation('food');
-    const myRentCost=firstCalculation('rent');
-    const myClothCost=firstCalculation('clothes');
+   
+    const myIncome=firstCalculation('income-field','error-message1');
+    const myFoodCost=firstCalculation('food','error-message2');
+    const myRentCost=firstCalculation('rent','error-message3');
+    const myClothCost=firstCalculation('clothes','error-message4');
 
     const totalExpenseField=document.getElementById('total-expenses');
-    // const totalExpenseFieldtext=totalExpenseField.innerText;
-    // const totalExpenseFieldInNumber=parseFloat(totalExpenseFieldtext);
+    
     const totalCost=costCalculation(myFoodCost,myRentCost,myClothCost);
-    totalExpenseField.innerText=totalCost;
+    if(totalCost>myIncome){
+        document.getElementById('error-message6').style.display='block';
+    }
+    else{
+        totalExpenseField.innerText=totalCost;
+        const balanceField=document.getElementById('balance');
+        const balanceLeft=myIncome-totalCost;
+        balanceField.innerText=balanceLeft;
+        console.log(balanceLeft);
+    }
 
-    const balanceField=document.getElementById('balance');
-    const balanceLeft=myIncome-totalCost;
-    balanceField.innerText=balanceLeft;
+    
     
 })
+// savings and remaining balance calculation
 
 document.getElementById('btn-save').addEventListener('click',function(){
 
-    const myIncome=firstCalculation('income-field');
-    const myFoodCost=firstCalculation('food');
-    const myRentCost=firstCalculation('rent');
-    const myClothCost=firstCalculation('clothes');
+    const myIncome=firstCalculation('income-field','error-message1');
+    const myFoodCost=firstCalculation('food','error-message2');
+    const myRentCost=firstCalculation('rent','error-message3');
+    const myClothCost=firstCalculation('clothes','error-message4');
+
 
     const totalExpenseField=document.getElementById('total-expenses');
-    // const totalExpenseFieldtext=totalExpenseField.innerText;
-    // const totalExpenseFieldInNumber=parseFloat(totalExpenseFieldtext);
+ 
     const totalCost=costCalculation(myFoodCost,myRentCost,myClothCost);
+
     totalExpenseField.innerText=totalCost;
 
     const balanceField=document.getElementById('balance');
@@ -57,19 +72,31 @@ document.getElementById('btn-save').addEventListener('click',function(){
 
 
 
-    const savingField=firstCalculation('save');
-    console.log(savingField);
 
+    const savingField=firstCalculation('save','error-message9');
+    if(isNaN(savingField)||savingField<0){
+        document.getElementById('error-message9').style.display='block';
+        document.getElementById('error-message8').style.display='none';
+    }
+
+   else{
     const savingResultField=document.getElementById('saving-ammount');
 
-    const savingAmmount=parseFloat (balanceLeft)*savingField;
+    const savingAmmount=myIncome*savingField;
     const savingAmmount2=savingAmmount/100;
 
-    const finalSaving=parseFloat(balanceLeft)-savingAmmount2;
-    savingResultField.innerText=finalSaving;
+    if(savingAmmount2>balanceLeft){
+        document.getElementById('error-message8').style.display='block';
+    }
+    else{
+        document.getElementById('error-message8').style.display='none';
+        savingResultField.innerText=savingAmmount2;
 
-    const finalBalance=document.getElementById('remaining-balance');
-    const  currentBalance=balanceLeft-finalSaving;
-    finalBalance.innerText=currentBalance;
+        const finalBalance=document.getElementById('remaining-balance');
+        const  currentBalance=balanceLeft-savingAmmount2;
+        finalBalance.innerText=currentBalance;
+    }
+   }
+
 })
 
