@@ -4,3 +4,19 @@
 body{
     font-family: 'Montserrat', sans-serif;
 }
+.site-title{
+    font-size: 80px;
+    color: #3944F7;
+}
+.right-side{
+    background-color:#F3F1FF;
+}
+.custom-btn{
+    font-size: 20px;
+    font-weight: 800;
+    padding: 15px 35px;
+    background-color: skyblue;
+    color: white;
+    border: none;
+    border-radius: 15px;
+}
