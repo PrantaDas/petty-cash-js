@@ -5,9 +5,12 @@ body{
     font-family: 'Montserrat', sans-serif;
 }
 /* heading title customize */
+header{
+    background-color: #F3F1FF;
+}
 .site-title{
     font-size: 80px;
-    color: skyblue;
+    color:  #562EFF;
 }
 .right-side{
     background-color:rgba(223, 205, 208, 0.616);
