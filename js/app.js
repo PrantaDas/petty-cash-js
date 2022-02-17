@@ -10,7 +10,6 @@ function firstCalculation(giveId,errorId){
     }
     
     else{
-        // income.value='';
         document.getElementById(errorId).style.display='none';
         return expenseInNumber;
     }
@@ -32,6 +31,8 @@ document.getElementById('btn-calculate').addEventListener('click',function(){
     const myClothCost=firstCalculation('clothes','error-message4');
 
     const totalExpenseField=document.getElementById('total-expenses');
+
+
     
     const totalCost=costCalculation(myFoodCost,myRentCost,myClothCost);
     if(totalCost>myIncome){
