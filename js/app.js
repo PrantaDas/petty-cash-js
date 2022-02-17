@@ -7,6 +7,7 @@ function firstCalculation(giveId,errorId){
     const expenseInNumber=parseFloat(expenseText);
     if(isNaN(expenseInNumber)||expenseInNumber<0){
         document.getElementById(errorId).style.display='block';
+        expense.value='';
     }
     
     else{
